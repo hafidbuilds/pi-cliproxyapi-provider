@@ -27,6 +27,16 @@ pi install /absolute/path/to/pi-cliproxyapi-provider
 pi -e /absolute/path/to/pi-cliproxyapi-provider
 ```
 
+### Maintained OMP fork
+
+The `fix/omp-compiled-bun-imports` branch in [hafidbuilds' fork](https://github.com/hafidbuilds/pi-cliproxyapi-provider/tree/fix/omp-compiled-bun-imports) carries [upstream PR #47](https://github.com/router-for-me/pi-cliproxyapi-provider/pull/47) by Filipe Utzig, adapted onto current upstream `main`. It fixes Codex transport dependency loading in compiled OMP.
+
+```bash
+omp plugin link /absolute/path/to/pi-cliproxyapi-provider
+```
+
+Keep this checkout on the maintenance branch and restart OMP after changing it. Do not run `omp plugin upgrade` for this locally maintained package; update the checkout from upstream and retain the patch instead. Pi can keep its separate npm installation.
+
 ## Login-style setup (recommended)
 
 This plugin needs both **baseUrl** and **apiKey**. pi's built-in `/login` only supports multi-field prompts on the account/OAuth path, so CLIProxyAPI appears under **Sign in with an account** (not API key).
